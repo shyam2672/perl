@@ -60,8 +60,10 @@ sub main {
                     $solved = 1;
                 }
                 else {
+                #checks if the guessed letter is correct,wrong or already guessed
                     &checkLetter( $word, $guess, @wordtillnow, @guesses,
                         $num_of_tries );
+                        
                     $solved = &checkWin( $word, @guesses );
                     print "word till now: ";
                     print join( " ", @guesses );
@@ -104,7 +106,7 @@ sub checkLetter {
                 print "You already guessed $guess!\n";
             }
             elsif ( $guess eq $let ) {
-                $guesses[$i] = $let;
+                $guesses[$i] = $let;           #updates the guessed word
 
             }
 
@@ -118,7 +120,7 @@ sub checkLetter {
             return;
         }
     }
-    push( @wordtillnow, $guess );
+    push( @wordtillnow, $guess );#pushes the guess
 
 }
 #method to determine if player won
@@ -232,5 +234,4 @@ sub hangman7Display {
     return 0;
 
 }
-
 
